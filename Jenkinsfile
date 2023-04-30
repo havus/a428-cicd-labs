@@ -1,7 +1,11 @@
 pipeline {
 	agent {
-    node {
-      label 'linux && nodejs'
+    // node {
+    //   label 'linux && nodejs'
+    // }
+    docker { // will connect to docker:dind
+      image 'node:16-buster-slim'
+      args '-p 3000:3000'
     }
   }
 
